@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "@material-ui/core";
+import { AppBar } from "@material-ui/core";
 
 const appTitle = {
   color: "blue",
@@ -9,11 +9,11 @@ const appTitle = {
 function Header() {
   return (
     <div className="header">
-      <Card tile>
+      <AppBar position="static" color="inherit">
         <h1 className="app-title" style={appTitle}>
           This is the header for now.
         </h1>
-      </Card>
+      </AppBar>
     </div>
   );
 }
