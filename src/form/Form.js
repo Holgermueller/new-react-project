@@ -24,7 +24,7 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ""
+      messageToCheck: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,14 +32,18 @@ export default class Form extends Component {
   }
 
   handleChange = e => {
-    this.setState({ message: e.target.value });
+    this.setState({ messageToCheck: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    let message = this.state.message;
-    console.log(message);
+    const messageToCheck = this.state.messageToCheck;
+    console.log(messageToCheck);
+
+    this.setState({
+      messageToCheck: messageToCheck
+    });
   };
 
   render() {
@@ -49,21 +53,29 @@ export default class Form extends Component {
           <form onSubmit={this.handleSubmit}>
             <CardContent style={formStyles}>
               <TextField
-                name="message"
+                type="text"
+                name="messageToCheck"
+                value={this.state.messageToCheck}
                 id="outlined-basic"
                 label="Check your message here..."
                 variant="outlined"
+                onChange={this.handleChange}
                 rows="5"
                 multiline
                 fullWidth
               ></TextField>
+              <Divider />
+              <CardActions>
+                <Button
+                  type="submit"
+                  value="Submit"
+                  style={buttonStyles}
+                  variant="contained"
+                >
+                  Submit
+                </Button>
+              </CardActions>
             </CardContent>
-            <Divider />
-            <CardActions>
-              <Button type="submit" style={buttonStyles} variant="contained">
-                Submit
-              </Button>
-            </CardActions>
           </form>
         </Card>
       </div>
