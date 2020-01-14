@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "@material-ui/core";
+import { LinearProgress } from "@material-ui/core";
 
 const meterCard = {
   width: " 45%",
@@ -7,11 +8,18 @@ const meterCard = {
   textAlign: "center"
 };
 
+const toxicityMeter = {
+  width: "95%",
+  margin: "auto"
+};
+
 function Meter() {
   return (
     <div className="meter">
       <Card style={meterCard}>
-        <h2>The meter will go here.</h2>
+        <h2>Toxicity score:</h2>
+
+        <LinearProgress style={toxicityMeter} variant="determinate" />
       </Card>
     </div>
   );

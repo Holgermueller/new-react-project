@@ -42,7 +42,7 @@ export default class Form extends Component {
     console.log(messageToCheck);
 
     this.setState({
-      messageToCheck: messageToCheck
+      messageToCheck: ""
     });
   };
 
