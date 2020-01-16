@@ -11,7 +11,7 @@ function Header() {
     <div className="header">
       <AppBar position="static" color="inherit">
         <h1 className="app-title" style={appTitle}>
-          Toxicity
+          Album Organizer
         </h1>
       </AppBar>
     </div>

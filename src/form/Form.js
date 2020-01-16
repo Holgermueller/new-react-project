@@ -7,13 +7,19 @@ import { Divider } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 
 const formCard = {
-  margin: "5% auto",
-  width: "55%"
+  marginTop: "5%",
+  marginLeft: "5%",
+  width: "45%",
+  position: "fixed"
 };
 
 const formStyles = {
   margin: "auto",
   textAlign: "center"
+};
+
+const entryField = {
+  margin: "2% auto"
 };
 
 const buttonStyles = {
@@ -24,25 +30,46 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messageToCheck: ""
+      artist: "",
+      albumTitle: "",
+      genre: ""
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeArtist = this.handleChangeArtist.bind(this);
+    this.hangleChangeAlbumTitle = this.hangleChangeAlbumTitle.bind(this);
+    this.handleChangeGenre = this.handleChangeGenre.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = e => {
-    this.setState({ messageToCheck: e.target.value });
+  handleChangeArtist = e => {
+    this.setState({ artist: e.target.value });
+  };
+
+  hangleChangeAlbumTitle = e => {
+    this.setState({ albumTitle: e.target.value });
+  };
+
+  handleChangeGenre = e => {
+    this.setState({ genre: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    const messageToCheck = this.state.messageToCheck;
-    console.log(messageToCheck);
+    const Artist = this.state.artist;
+    const AlbumTitle = this.state.albumTitle;
+    const Genre = this.state.genre;
+
+    console.log({
+      Artist,
+      AlbumTitle,
+      Genre
+    });
 
     this.setState({
-      messageToCheck: ""
+      artist: "",
+      albumTitle: "",
+      genre: ""
     });
   };
 
@@ -53,15 +80,36 @@ export default class Form extends Component {
           <form onSubmit={this.handleSubmit}>
             <CardContent style={formStyles}>
               <TextField
+                style={entryField}
                 type="text"
-                name="messageToCheck"
-                value={this.state.messageToCheck}
-                id="outlined-basic"
-                label="Check your message here..."
+                name="Artist"
+                value={this.state.artist}
+                label="Artist"
                 variant="outlined"
-                onChange={this.handleChange}
+                onChange={this.handleChangeArtist}
                 rows="5"
-                multiline
+                fullWidth
+              ></TextField>
+              <TextField
+                style={entryField}
+                type="text"
+                name="Album"
+                value={this.state.albumTitle}
+                label="Album Title"
+                variant="outlined"
+                onChange={this.hangleChangeAlbumTitle}
+                rows="5"
+                fullWidth
+              ></TextField>
+              <TextField
+                style={entryField}
+                type="text"
+                name="Genre"
+                value={this.state.genre}
+                label="Genre"
+                variant="outlined"
+                onChange={this.handleChangeGenre}
+                rows="5"
                 fullWidth
               ></TextField>
               <Divider />

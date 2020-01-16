@@ -2,7 +2,8 @@ import React from "react";
 
 const footer = {
   textAlign: "center",
-  bottom: "0"
+  bottom: "0",
+  position: "absolute"
 };
 
 function Footer() {

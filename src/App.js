@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./layout/header/Header";
-import Meter from "./form/Meter";
 import Form from "./form/Form";
+import Banners from "./banners/Banners";
 import Footer from "./layout/footer/Footer";
 import { Switch, FormControlLabel } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
@@ -40,8 +40,8 @@ function App() {
         </div>
       </ThemeProvider>
 
-      <Meter />
       <Form />
+      <Banners />
       <Footer />
     </div>
   );
