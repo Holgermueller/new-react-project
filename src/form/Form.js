@@ -32,12 +32,14 @@ export default class Form extends Component {
     this.state = {
       artist: "",
       albumTitle: "",
-      genre: ""
+      genre: "",
+      format: ""
     };
 
     this.handleChangeArtist = this.handleChangeArtist.bind(this);
     this.hangleChangeAlbumTitle = this.hangleChangeAlbumTitle.bind(this);
     this.handleChangeGenre = this.handleChangeGenre.bind(this);
+    this.handleChangeFormat = this.handleChangeFormat.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -53,23 +55,30 @@ export default class Form extends Component {
     this.setState({ genre: e.target.value });
   };
 
+  handleChangeFormat = e => {
+    this.setState({ format: e.target.value });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
     const Artist = this.state.artist;
     const AlbumTitle = this.state.albumTitle;
     const Genre = this.state.genre;
+    const Format = this.state.format;
 
     console.log({
       Artist,
       AlbumTitle,
-      Genre
+      Genre,
+      Format
     });
 
     this.setState({
       artist: "",
       albumTitle: "",
-      genre: ""
+      genre: "",
+      format: ""
     });
   };
 
@@ -87,7 +96,6 @@ export default class Form extends Component {
                 label="Artist"
                 variant="outlined"
                 onChange={this.handleChangeArtist}
-                rows="5"
                 fullWidth
               ></TextField>
               <TextField
@@ -98,7 +106,6 @@ export default class Form extends Component {
                 label="Album Title"
                 variant="outlined"
                 onChange={this.hangleChangeAlbumTitle}
-                rows="5"
                 fullWidth
               ></TextField>
               <TextField
@@ -109,7 +116,16 @@ export default class Form extends Component {
                 label="Genre"
                 variant="outlined"
                 onChange={this.handleChangeGenre}
-                rows="5"
+                fullWidth
+              ></TextField>
+              <TextField
+                style={entryField}
+                type="text"
+                name="Format"
+                value={this.state.format}
+                label="Format"
+                variant="outlined"
+                onChange={this.handleChangeFormat}
                 fullWidth
               ></TextField>
               <Divider />
