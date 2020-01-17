@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./layout/header/Header";
 import Form from "./form/Form";
 import Banners from "./banners/Banners";
@@ -28,21 +29,23 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Router>
+        <Header />
 
-      <ThemeProvider theme={theme}>
-        <div style={darkThemeControl}>
-          <FormControlLabel
-            control={<Switch color="primary" />}
-            label="Dark Theme"
-            theme={theme}
-          />
-        </div>
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <div style={darkThemeControl}>
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Dark Theme"
+              theme={theme}
+            />
+          </div>
+        </ThemeProvider>
 
-      <Form />
-      <Banners />
-      <Footer />
+        <Form />
+        <Banners />
+        <Footer />
+      </Router>
     </div>
   );
 }
