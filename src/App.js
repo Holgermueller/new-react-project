@@ -2,7 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./layout/header/Header";
 import Form from "./form/Form";
-import Banners from "./banners/Banners";
+import Artist from "./pages/Artist";
+import Album from "./pages/Album";
+import Format from "./pages/Format";
+import Genre from "./pages/Genre";
 import Footer from "./layout/footer/Footer";
 import { Switch, FormControlLabel } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
@@ -42,8 +45,11 @@ function App() {
           </div>
         </ThemeProvider>
 
-        <Form />
-        <Banners />
+        <Route path="/" exact component={Form} />
+        <Route path="/artist" component={Artist} />
+        <Route path="/album" component={Album} />
+        <Route path="/format" component={Format} />
+        <Route path="/genre" component={Genre} />
         <Footer />
       </Router>
     </div>
