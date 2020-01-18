@@ -3,7 +3,9 @@ import React from "react";
 const footer = {
   textAlign: "center",
   bottom: "0",
-  position: "absolute"
+  width: "100%",
+  position: "fixed",
+  backgroundColor: "white"
 };
 
 function Footer() {

@@ -6,6 +6,7 @@ import Artist from "./pages/Artist";
 import Album from "./pages/Album";
 import Format from "./pages/Format";
 import Genre from "./pages/Genre";
+import Nav from "./nav/Nav";
 import Footer from "./layout/footer/Footer";
 import { Switch, FormControlLabel } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
@@ -50,6 +51,7 @@ function App() {
         <Route path="/album" component={Album} />
         <Route path="/format" component={Format} />
         <Route path="/genre" component={Genre} />
+        <Nav />
         <Footer />
       </Router>
     </div>
