@@ -9,6 +9,7 @@ import { Button } from "@material-ui/core";
 const formCard = {
   marginTop: "5%",
   marginLeft: "5%",
+  marginBottom: "7%",
   width: "45%",
   position: "fixed"
 };
@@ -86,6 +87,10 @@ export default class Form extends Component {
     return (
       <div className="form">
         <Card style={formCard}>
+          <CardContent>
+            <h1>Add an album:</h1>
+            <Divider />
+          </CardContent>
           <form onSubmit={this.handleSubmit}>
             <CardContent style={formStyles}>
               <TextField
