@@ -12,12 +12,7 @@ function Header() {
   return (
     <div className="header">
       <AppBar position="static" color="inherit">
-        <h1
-          className="app-title"
-          style={appTitle}
-          component={RouterLink}
-          to="/"
-        >
+        <h1 className="app-title" style={appTitle}>
           <LibraryMusicIcon />
           Album Organizer
         </h1>

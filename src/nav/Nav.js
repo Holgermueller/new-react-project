@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Card } from "@material-ui/core";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
+import HomeIcon from "@material-ui/icons/Home";
 import PersonIcon from "@material-ui/icons/Person";
 import AlbumIcon from "@material-ui/icons/Album";
 import MicIcon from "@material-ui/icons/Mic";
@@ -20,6 +21,13 @@ export default class Nav extends Component {
       <div className="nav">
         <Card style={navStyles}>
           <BottomNavigation showLabels>
+            <BottomNavigationAction
+              label="Home"
+              value="Home"
+              icon={<HomeIcon />}
+              component={RouterLink}
+              to="/"
+            />
             <BottomNavigationAction
               label="Artist"
               value="Artist"

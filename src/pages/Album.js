@@ -1,10 +1,33 @@
 import React, { Component } from "react";
+import { Card, CardContent, TextField } from "@material-ui/core";
+
+const entryField = {
+  margin: "2% auto"
+};
+
+const pageHeader = {
+  textAlign: "center",
+  width: "85%",
+  margin: "auto"
+};
 
 export default class Album extends Component {
   render() {
     return (
       <div>
-        <h1>Album</h1>
+        <Card style={pageHeader}>
+          <CardContent>
+            <h1>Albums</h1>
+            <TextField
+              style={entryField}
+              label="Filter Albums..."
+              name="filterAlbums"
+              type="text"
+              variant="outlined"
+              fullWidth
+            />
+          </CardContent>
+        </Card>
       </div>
     );
   }
