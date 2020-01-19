@@ -8,7 +8,7 @@ const entryField = {
 const pageHeader = {
   textAlign: "center",
   width: "85%",
-  margin: "auto"
+  margin: "7% auto"
 };
 
 export default class Artist extends Component {
