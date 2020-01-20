@@ -13,7 +13,7 @@ const navStyles = {
 };
 
 const navLinks = {
-  float: "right"
+  marginLeft: "35%"
 };
 
 export default class Nav extends Component {

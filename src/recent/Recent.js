@@ -5,7 +5,7 @@ import { List, ListItem, ListItemText } from "@material-ui/core";
 const recentsCard = {
   width: "45%",
   float: "right",
-  marginTop: "5%",
+  marginTop: "2%",
   marginRight: "3%"
 };
 

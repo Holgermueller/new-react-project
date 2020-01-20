@@ -7,7 +7,7 @@ import { Divider } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 
 const formCard = {
-  marginTop: "5%",
+  marginTop: "2%",
   marginLeft: "5%",
   marginBottom: "7%",
   width: "45%",
