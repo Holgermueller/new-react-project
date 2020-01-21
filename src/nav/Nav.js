@@ -9,7 +9,7 @@ import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 
 const navStyles = {
   width: "100%",
-  position: "absolute"
+  position: "fixed"
 };
 
 const navLinks = {

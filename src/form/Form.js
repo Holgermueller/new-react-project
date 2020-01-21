@@ -11,7 +11,7 @@ const formCard = {
   marginLeft: "5%",
   marginBottom: "7%",
   width: "45%",
-  position: "fixed"
+  position: "absolute"
 };
 
 const formStyles = {

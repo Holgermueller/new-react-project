@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Card, CardContent } from "@material-ui/core";
+import { Card, CardContent, Divider } from "@material-ui/core";
 import Form from "../form/Form";
 import Recent from "../recent/Recent";
 
 const pageHeader = {
-  margin: "8% auto 0 auto",
+  margin: "10% auto 0 auto",
   width: "55%",
   textAlign: "center"
 };
@@ -16,8 +16,11 @@ export default class Home extends Component {
         <Card style={pageHeader}>
           <CardContent>
             <h1>Hello, Name,</h1>
+            <Divider />
+            <h3>Welcome back.</h3>
           </CardContent>
         </Card>
+
         <Form />
         <Recent />
       </div>
