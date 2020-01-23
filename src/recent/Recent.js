@@ -12,7 +12,7 @@ const recentsCard = {
 export default class Recent extends Component {
   render() {
     return (
-      <div>
+      <div className="recents-component">
         <Card style={recentsCard}>
           <CardContent>
             <h1>Recent Albums:</h1>
