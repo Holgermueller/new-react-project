@@ -13,11 +13,17 @@ const textfield = {
 };
 
 export default class Login extends Component {
-  state = {
-    open: false,
-    username: "",
-    password: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      username: "",
+      password: ""
+    };
+
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+  }
 
   openForm = () => {
     this.setState({ open: true });
@@ -27,8 +33,25 @@ export default class Login extends Component {
     this.setState({ open: false });
   };
 
+  handleUsernameChange = e => {
+    this.setState({ username: e.target.value });
+  };
+
+  handlePasswordChange = e => {
+    this.setState({ password: e.target.value });
+  };
+
+  clearForm = () => {
+    this.setState({
+      username: "",
+      password: ""
+    });
+  };
+
   login = () => {
-    console.log("click");
+    console.log(this.state);
+    this.clearForm();
+    this.closeForm();
   };
 
   render() {
@@ -49,6 +72,7 @@ export default class Login extends Component {
                 value={this.state.username}
                 variant="outlined"
                 style={textfield}
+                onChange={this.handleUsernameChange}
                 fullWidth
               ></TextField>
               <TextField
@@ -57,6 +81,7 @@ export default class Login extends Component {
                 value={this.state.password}
                 variant="outlined"
                 style={textfield}
+                onChange={this.handlePasswordChange}
                 fullWidth
               ></TextField>
             </form>
@@ -65,7 +90,9 @@ export default class Login extends Component {
           <DialogActions>
             <Button onClick={this.closeForm}>Cancel</Button>
 
-            <Button onClick={this.login}>Login</Button>
+            <Button type="submit" value="Submit" onClick={this.login}>
+              Login
+            </Button>
           </DialogActions>
         </Dialog>
       </div>

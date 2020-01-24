@@ -29,6 +29,16 @@ export default class Register extends Component {
     this.setState({ open: false });
   };
 
+  checkUsername = () => {};
+
+  checkEmail = () => {};
+
+  validatePassword = () => {};
+
+  confirmPassword = () => {};
+
+  clearForm = () => {};
+
   register = () => {
     console.log("click");
   };
@@ -52,7 +62,7 @@ export default class Register extends Component {
                 variant="outlined"
                 style={textfield}
                 fullWidth
-              ></TextField>
+              />
               <TextField
                 type="text"
                 label="Email"
@@ -60,7 +70,7 @@ export default class Register extends Component {
                 variant="outlined"
                 style={textfield}
                 fullWidth
-              ></TextField>
+              />
               <TextField
                 type="text"
                 label="Password"
@@ -68,7 +78,7 @@ export default class Register extends Component {
                 variant="outlined"
                 style={textfield}
                 fullWidth
-              ></TextField>
+              />
               <TextField
                 type="text"
                 label="Confirm Password"
@@ -76,14 +86,22 @@ export default class Register extends Component {
                 variant="outlined"
                 style={textfield}
                 fullWidth
-              ></TextField>
+              />
             </form>
           </DialogContent>
 
           <DialogActions>
-            <Button onClick={this.closeForm}>Cancel</Button>
+            <Button
+              aria-label="cancel"
+              color="secondary"
+              onClick={this.closeForm}
+            >
+              Cancel
+            </Button>
 
-            <Button onClick={this.register}>Register</Button>
+            <Button color="primary" onClick={this.register}>
+              Register
+            </Button>
           </DialogActions>
         </Dialog>
       </div>
