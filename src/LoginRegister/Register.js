@@ -12,6 +12,11 @@ const textfield = {
   margin: "2% auto"
 };
 
+const errors = {
+  textAlign: "center",
+  color: "red"
+};
+
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +25,8 @@ export default class Register extends Component {
       username: "",
       email: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      error: ""
     };
 
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -37,31 +43,65 @@ export default class Register extends Component {
 
   closeForm = () => {
     this.setState({ open: false });
+    this.clearForm();
   };
 
   handleUsernameChange = e => {
-    this.setState({ username: e.target.value });
+    this.setState({ username: e.target.value, error: "" });
   };
 
   handlePasswordChange = e => {
-    this.setState({ password: e.target.value });
+    this.setState({ password: e.target.value, error: "" });
   };
 
   handleEmailChange = e => {
-    this.setState({ email: e.target.value });
+    this.setState({ email: e.target.value, error: "" });
   };
 
   handleConfirmPasswordChange = e => {
-    this.setState({ confirmPassword: e.target.value });
+    this.setState({ confirmPassword: e.target.value, error: "" });
   };
 
-  checkUsername = () => {};
+  validateForm = e => {
+    e.preventDefault();
 
-  checkEmail = () => {};
+    if (
+      !this.state.username &&
+      !this.state.email &&
+      !this.state.password &&
+      !this.state.confirmPassword
+    ) {
+      this.setState({ error: "You must fill out all of the fields." });
+    } else if (!this.state.username) {
+      this.setState({ error: "You must provide a username." });
+    } else if (!this.state.email) {
+      this.setState({ error: "You must provide an email." });
+    } else if (!this.validateEmail(this.email)) {
+      this.setState({ error: "Email is not valid." });
+    } else if (!this.validatePassword(this.password)) {
+      this.setState({ error: "Password does not fit criteria." });
+    } else if (!this.state.password) {
+      this.setState({ error: "You must provide a password" });
+    } else if (!this.state.confirmPassword) {
+      this.setState({ error: "You must provide a confirmation password." });
+    } else if (this.state.password !== this.state.confirmPassword) {
+      this.setState({ error: "Passwords must match." });
+    } else {
+      this.register();
+    }
+  };
 
-  validatePassword = () => {};
+  validateUsername = () => {};
 
-  confirmPassword = () => {};
+  validateEmail = email => {
+    const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    return regex.test(this.email);
+  };
+
+  validatePassword = password => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
+    return regex.test(this.password);
+  };
 
   clearForm = () => {
     this.setState({
@@ -74,10 +114,10 @@ export default class Register extends Component {
 
   register = () => {
     this.clearForm();
-    this.closeForm();
   };
 
   render() {
+    const checkForError = this.state.error;
     return (
       <div>
         <Button onClick={this.openForm}>
@@ -92,6 +132,7 @@ export default class Register extends Component {
               <TextField
                 type="text"
                 label="Username"
+                name="username"
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
                 variant="outlined"
@@ -101,6 +142,7 @@ export default class Register extends Component {
               <TextField
                 type="text"
                 label="Email"
+                name="email"
                 value={this.state.email}
                 onChange={this.handleEmailChange}
                 variant="outlined"
@@ -110,6 +152,7 @@ export default class Register extends Component {
               <TextField
                 type="text"
                 label="Password"
+                name="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
                 variant="outlined"
@@ -119,6 +162,7 @@ export default class Register extends Component {
               <TextField
                 type="text"
                 label="Confirm Password"
+                name="confirmPassword"
                 value={this.state.confirmPassword}
                 onChange={this.handleConfirmPasswordChange}
                 variant="outlined"
@@ -127,7 +171,13 @@ export default class Register extends Component {
               />
             </form>
 
-            <span>Errors: (Errors will appear here.)</span>
+            <span>
+              {checkForError ? (
+                <h2 style={errors}>Errors: {this.state.error}</h2>
+              ) : (
+                <p />
+              )}
+            </span>
           </DialogContent>
 
           <DialogActions>
@@ -139,7 +189,7 @@ export default class Register extends Component {
               Cancel
             </Button>
 
-            <Button color="primary" onClick={this.register}>
+            <Button color="primary" onClick={this.validateForm}>
               Register
             </Button>
           </DialogActions>

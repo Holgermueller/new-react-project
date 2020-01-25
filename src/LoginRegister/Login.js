@@ -50,7 +50,6 @@ export default class Login extends Component {
 
   login = () => {
     this.clearForm();
-    this.closeForm();
   };
 
   render() {
