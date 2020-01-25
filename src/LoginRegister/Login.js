@@ -49,7 +49,6 @@ export default class Login extends Component {
   };
 
   login = () => {
-    console.log(this.state);
     this.clearForm();
     this.closeForm();
   };
@@ -74,7 +73,7 @@ export default class Login extends Component {
                 style={textfield}
                 onChange={this.handleUsernameChange}
                 fullWidth
-              ></TextField>
+              />
               <TextField
                 type="text"
                 label="Password"
@@ -83,7 +82,7 @@ export default class Login extends Component {
                 style={textfield}
                 onChange={this.handlePasswordChange}
                 fullWidth
-              ></TextField>
+              />
             </form>
           </DialogContent>
 

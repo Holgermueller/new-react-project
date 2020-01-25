@@ -13,13 +13,23 @@ const textfield = {
 };
 
 export default class Register extends Component {
-  state = {
-    open: false,
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    };
+
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(
+      this
+    );
+  }
 
   openForm = () => {
     this.setState({ open: true });
@@ -27,6 +37,22 @@ export default class Register extends Component {
 
   closeForm = () => {
     this.setState({ open: false });
+  };
+
+  handleUsernameChange = e => {
+    this.setState({ username: e.target.value });
+  };
+
+  handlePasswordChange = e => {
+    this.setState({ password: e.target.value });
+  };
+
+  handleEmailChange = e => {
+    this.setState({ email: e.target.value });
+  };
+
+  handleConfirmPasswordChange = e => {
+    this.setState({ confirmPassword: e.target.value });
   };
 
   checkUsername = () => {};
@@ -37,10 +63,18 @@ export default class Register extends Component {
 
   confirmPassword = () => {};
 
-  clearForm = () => {};
+  clearForm = () => {
+    this.setState({
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    });
+  };
 
   register = () => {
-    console.log("click");
+    this.clearForm();
+    this.closeForm();
   };
 
   render() {
@@ -59,6 +93,7 @@ export default class Register extends Component {
                 type="text"
                 label="Username"
                 value={this.state.username}
+                onChange={this.handleUsernameChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
@@ -67,6 +102,7 @@ export default class Register extends Component {
                 type="text"
                 label="Email"
                 value={this.state.email}
+                onChange={this.handleEmailChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
@@ -75,6 +111,7 @@ export default class Register extends Component {
                 type="text"
                 label="Password"
                 value={this.state.password}
+                onChange={this.handlePasswordChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
@@ -83,11 +120,14 @@ export default class Register extends Component {
                 type="text"
                 label="Confirm Password"
                 value={this.state.confirmPassword}
+                onChange={this.handleConfirmPasswordChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
               />
             </form>
+
+            <span>Errors: (Errors will appear here.)</span>
           </DialogContent>
 
           <DialogActions>
