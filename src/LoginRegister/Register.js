@@ -76,9 +76,9 @@ export default class Register extends Component {
       this.setState({ error: "You must provide a username." });
     } else if (!this.state.email) {
       this.setState({ error: "You must provide an email." });
-    } else if (!this.validateEmail(this.email)) {
+    } else if (!this.validateEmail(this.state.email)) {
       this.setState({ error: "Email is not valid." });
-    } else if (!this.validatePassword(this.password)) {
+    } else if (!this.validatePassword(this.state.password)) {
       this.setState({ error: "Password does not fit criteria." });
     } else if (!this.state.password) {
       this.setState({ error: "You must provide a password" });
@@ -95,12 +95,12 @@ export default class Register extends Component {
 
   validateEmail = email => {
     const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-    return regex.test(this.email);
+    return regex.test(this.state.email);
   };
 
   validatePassword = password => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
-    return regex.test(this.password);
+    return regex.test(this.state.password);
   };
 
   clearForm = () => {
