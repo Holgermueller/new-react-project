@@ -8,6 +8,10 @@ import {
   TextField
 } from "@material-ui/core";
 
+const buttonStyles = {
+  textAlign: "center"
+};
+
 const textfield = {
   margin: "2% auto"
 };
@@ -37,6 +41,7 @@ export default class Login extends Component {
 
   closeForm = () => {
     this.setState({ open: false });
+    this.clearForm();
   };
 
   validateForm = e => {
@@ -82,7 +87,12 @@ export default class Login extends Component {
     const checkForError = this.state.error;
     return (
       <div>
-        <Button onClick={this.openForm}>
+        <Button
+          variant="outlined"
+          style={buttonStyles}
+          fullWidth
+          onClick={this.openForm}
+        >
           <h1>Login</h1>
         </Button>
 
@@ -121,9 +131,22 @@ export default class Login extends Component {
           </DialogContent>
 
           <DialogActions>
-            <Button onClick={this.closeForm}>Cancel</Button>
+            <Button
+              onClick={this.closeForm}
+              color="secondary"
+              variant="outlined"
+            >
+              Cancel
+            </Button>
 
-            <Button type="submit" value="Submit" onClick={this.validateForm}>
+            <Button
+              color="primary"
+              variant="outlined"
+              type="submit"
+              value="Submit"
+              onClick={this.validateForm}
+              disabled={!this.state.username || !this.state.password}
+            >
               Login
             </Button>
           </DialogActions>

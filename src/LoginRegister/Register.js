@@ -120,7 +120,7 @@ export default class Register extends Component {
     const checkForError = this.state.error;
     return (
       <div>
-        <Button onClick={this.openForm}>
+        <Button variant="outlined" fullWidth onClick={this.openForm}>
           <h1>Sign Up</h1>
         </Button>
 
@@ -184,12 +184,23 @@ export default class Register extends Component {
             <Button
               aria-label="cancel"
               color="secondary"
+              variant="outlined"
               onClick={this.closeForm}
             >
               Cancel
             </Button>
 
-            <Button color="primary" onClick={this.validateForm}>
+            <Button
+              color="primary"
+              variant="outlined"
+              onClick={this.validateForm}
+              disabled={
+                !this.state.username ||
+                !this.state.email ||
+                !this.state.password ||
+                !this.state.confirmPassword
+              }
+            >
               Register
             </Button>
           </DialogActions>
