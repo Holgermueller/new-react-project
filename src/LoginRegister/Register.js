@@ -131,7 +131,7 @@ export default class Register extends Component {
             <form>
               <TextField
                 type="text"
-                label="Username"
+                label="Username *"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
@@ -141,7 +141,7 @@ export default class Register extends Component {
               />
               <TextField
                 type="text"
-                label="Email"
+                label="Email *"
                 name="email"
                 value={this.state.email}
                 onChange={this.handleEmailChange}
@@ -151,7 +151,7 @@ export default class Register extends Component {
               />
               <TextField
                 type="text"
-                label="Password"
+                label="Password *"
                 name="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
@@ -161,7 +161,7 @@ export default class Register extends Component {
               />
               <TextField
                 type="text"
-                label="Confirm Password"
+                label="Confirm Password *"
                 name="confirmPassword"
                 value={this.state.confirmPassword}
                 onChange={this.handleConfirmPasswordChange}
@@ -170,6 +170,10 @@ export default class Register extends Component {
                 fullWidth
               />
             </form>
+
+            <span>
+              <h6>* denotes required field.</h6>
+            </span>
 
             <span>
               {checkForError ? (
