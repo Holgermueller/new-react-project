@@ -5,6 +5,7 @@ import { CardActions } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import db from "../firebase/firebaseInit";
 
 const formCard = {
   marginTop: "2%",
@@ -63,17 +64,19 @@ export default class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const Artist = this.state.artist;
-    const AlbumTitle = this.state.albumTitle;
-    const Genre = this.state.genre;
-    const Format = this.state.format;
-
-    console.log({
-      Artist,
-      AlbumTitle,
-      Genre,
-      Format
-    });
+    db.collection("albums")
+      .add({
+        Artist: this.state.artist,
+        AlbumTitle: this.state.albumTitle,
+        Genre: this.state.genre,
+        Format: this.state.format
+      })
+      .then(() => {
+        console.log("addition success!!");
+      })
+      .catch(err => {
+        console.log("Error: " + err);
+      });
 
     this.setState({
       artist: "",

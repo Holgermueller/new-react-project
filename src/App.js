@@ -15,8 +15,9 @@ function App() {
     <div className="App">
       <Router>
         <Nav />
-        <Route path="/" exact component={Home} />
-        <Route path="/dashboard" component={Dashboard} />
+        {/* /* <Route path="/" exact component={Home} />
+        <Route path="/dashboard" component={Dashboard} /> */}
+        <Route path="/" exact component={Dashboard} />
         <Route path="/artist" component={Artist} />
         <Route path="/album" component={Album} />
         <Route path="/format" component={Format} />
