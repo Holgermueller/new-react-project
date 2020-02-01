@@ -1,9 +1,10 @@
 export default {
-  apiKey: "AIzaSyBw_XTxT6R_bfFIQCIsvAnbP3lUKaGPogo",
-  authDomain: "tone-app-199717.firebaseapp.com",
-  databaseURL: "https://tone-app-199717.firebaseio.com",
-  projectId: "tone-app-199717",
-  storageBucket: "tone-app-199717.appspot.com",
-  messagingSenderId: "618773555838",
-  appId: "1:618773555838:web:4af92e34ac93c05225062f"
+  apiKey: "AIzaSyD8EgassoIU9hvYGUiqaEhRG0Aks20nXzs",
+  authDomain: "albumcollection-8e659.firebaseapp.com",
+  databaseURL: "https://albumcollection-8e659.firebaseio.com",
+  projectId: "albumcollection-8e659",
+  storageBucket: "albumcollection-8e659.appspot.com",
+  messagingSenderId: "172896815482",
+  appId: "1:172896815482:web:41d437537dda3815e6eec3",
+  measurementId: "G-MJZC3YV3FV"
 };
