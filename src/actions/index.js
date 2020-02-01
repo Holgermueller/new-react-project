@@ -1,5 +1,5 @@
 import { albumsRef } from "../config/firebase";
-import { FETCH_ALBUMS } from "./types";
+import { FETCH_ALBUMS } from "./albums";
 
 export const addAlbum = newAlbum => async dispatch => {
   albumsRef.push().set(newAlbum);

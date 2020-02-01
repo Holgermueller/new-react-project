@@ -1,4 +1,4 @@
-import { FETCH_ALBUMS } from "../actions/types";
+import { FETCH_ALBUMS } from "../actions/albums";
 
 export default (state = {}, action) => {
   switch (action.type) {
