@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Artist from "./pages/Artist";
-import Album from "./pages/Album";
-import Format from "./pages/Format";
-import Genre from "./pages/Genre";
-import Nav from "./nav/Nav";
-import Footer from "./layout/footer/Footer";
+import Home from "./components/pages/Home";
+import Dashboard from "./components/pages/Dashboard";
+import Artist from "./components/pages/Artist";
+import Album from "./components/pages/Album";
+import Format from "./components/pages/Format";
+import Genre from "./components/pages/Genre";
+import Nav from "./components/nav/Nav";
+import Footer from "./components/layout/footer/Footer";
 import "./App.css";
 
 function App() {

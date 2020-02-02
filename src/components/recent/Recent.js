@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardContent, Divider } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
-import db from "../firebase/firebaseInit";
+import { connect } from "react-redux";
 
 const recentsCard = {
   width: "45%",
@@ -20,47 +20,29 @@ const AlbumListing = props => (
   </Card>
 );
 
-export default class Recent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      albumsFromDb: []
+class Recent extends Component {
+  componentDidMount = state => {
+    return {
+      albumsFromStore: state
     };
-  }
-
-  componentDidMount = () => {
-    db.collection("albums").onSnapshot(
-      querySnapshot => {
-        let albumsFromDb = [];
-        querySnapshot.forEach(doc => {
-          let recentAlbumData = {
-            albumId: doc.id,
-            albumTitle: doc.data().AlbumTitle
-          };
-          albumsFromDb.push(recentAlbumData);
-        });
-        this.setState({ albumsFromDb: albumsFromDb });
-      },
-      err => {
-        console.log(err);
-      }
-    );
   };
 
   loadRecentAlbums = () => {
-    return this.state.albumsFromDb.map((singleAlbum, i) => {
+    return this.albums.map((singleAlbum, i) => {
       return <AlbumListing singleAlbum={singleAlbum} key={i} />;
     });
   };
 
   render() {
+    console.log(this.props);
+    const { albums } = this.props;
     return (
       <div className="recents-component">
         <Card style={recentsCard}>
           <CardContent>
             <h1>Recent Albums:</h1>
             <Divider />
-            {this.state.albumsFromDb ? (
+            {albums ? (
               <Grid>{this.loadRecentAlbums()}</Grid>
             ) : (
               <Grid>
@@ -75,3 +57,5 @@ export default class Recent extends Component {
     );
   }
 }
+
+export default connect()(Recent);
