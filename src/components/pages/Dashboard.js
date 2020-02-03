@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardContent, Divider } from "@material-ui/core";
 import Form from "../form/Form";
-import Recent from "../recent/Recent";
+import Recent from "../recent/RecentAlbum";
 
 const pageHeader = {
   margin: "10% auto 0 auto",

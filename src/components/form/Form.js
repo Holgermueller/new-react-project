@@ -5,7 +5,7 @@ import { CardActions } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-import db from "../firebase/firebaseInit";
+import db from "../../firebase/firebaseInit";
 
 const formCard = {
   marginTop: "2%",
