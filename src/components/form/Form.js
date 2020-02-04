@@ -5,8 +5,8 @@ import { CardActions } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-import { createAlbum } from "../../store/actions/albumActions";
 import { connect } from "react-redux";
+import { createAlbum } from "../../store/actions/albumActions";
 
 const formCard = {
   marginTop: "2%",

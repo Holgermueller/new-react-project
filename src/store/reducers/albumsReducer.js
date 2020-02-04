@@ -26,7 +26,9 @@ const albumReducer = (state = initState, action) => {
     case "CREATE_ALBUM_SUCCESS":
       console.log("album added", action.album);
       return state;
-    // case:"CREATE_PROJECT_ERROR":
+    case "CREATE_PROJECT_ERROR":
+      console.log("album addition error");
+      return state;
 
     default:
       return state;
