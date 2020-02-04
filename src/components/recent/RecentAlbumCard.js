@@ -6,7 +6,7 @@ const RecentCard = ({ albums }) => {
     <div>
       {albums &&
         albums.map(album => {
-          return <RecentAlbumSummary album={album} />;
+          return <RecentAlbumSummary album={album} key={album.AlbumTitle} />;
         })}
     </div>
   );

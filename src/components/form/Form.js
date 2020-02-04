@@ -29,12 +29,6 @@ const buttonStyles = {
   margin: "2% auto"
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    createAlbum: album => dispatch(createAlbum(album))
-  };
-};
-
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -60,20 +54,6 @@ class Form extends Component {
 
     this.props.createAlbum(this.state);
 
-    // db.collection("albums")
-    //   .add({
-    //     Artist: this.state.artist,
-    //     AlbumTitle: this.state.albumTitle,
-    //     Genre: this.state.genre,
-    //     Format: this.state.format
-    //   })
-    //   .then(() => {
-    //     console.log("addition success!!");
-    //   })
-    //   .catch(err => {
-    //     console.log("Error: " + err);
-    //   });
-
     this.setState({
       artist: "",
       albumTitle: "",
@@ -95,7 +75,6 @@ class Form extends Component {
               <TextField
                 style={entryField}
                 type="text"
-                name="Artist"
                 id="artist"
                 value={this.state.artist}
                 label="Artist"
@@ -106,7 +85,6 @@ class Form extends Component {
               <TextField
                 style={entryField}
                 type="text"
-                name="Album"
                 id="albumTitle"
                 value={this.state.albumTitle}
                 label="Album Title"
@@ -117,7 +95,6 @@ class Form extends Component {
               <TextField
                 style={entryField}
                 type="text"
-                name="Genre"
                 id="genre"
                 value={this.state.genre}
                 label="Genre"
@@ -128,7 +105,6 @@ class Form extends Component {
               <TextField
                 style={entryField}
                 type="text"
-                name="Format"
                 id="format"
                 value={this.state.format}
                 label="Format"
@@ -154,5 +130,11 @@ class Form extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createAlbum: album => dispatch(createAlbum(album))
+  };
+};
 
 export default connect(null, mapDispatchToProps)(Form);
