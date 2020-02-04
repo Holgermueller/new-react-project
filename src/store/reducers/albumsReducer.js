@@ -22,6 +22,10 @@ const initState = {
 };
 
 const albumReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "CREATE_ALBUM":
+      console.log("create project", action.album);
+  }
   return state;
 };
 

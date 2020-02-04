@@ -5,7 +5,8 @@ import { CardActions } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-import db from "../../firebase/firebaseInit";
+import { createAlbum } from "../../store/actions/albumActions";
+import { connect } from "react-redux";
 
 const formCard = {
   marginTop: "2%",
@@ -28,7 +29,13 @@ const buttonStyles = {
   margin: "2% auto"
 };
 
-export default class Form extends Component {
+const mapDispatchToProps = dispatch => {
+  return {
+    createAlbum: album => dispatch(createAlbum(album))
+  };
+};
+
+class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,45 +45,34 @@ export default class Form extends Component {
       format: ""
     };
 
-    this.handleChangeArtist = this.handleChangeArtist.bind(this);
-    this.hangleChangeAlbumTitle = this.hangleChangeAlbumTitle.bind(this);
-    this.handleChangeGenre = this.handleChangeGenre.bind(this);
-    this.handleChangeFormat = this.handleChangeFormat.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChangeArtist = e => {
-    this.setState({ artist: e.target.value });
-  };
-
-  hangleChangeAlbumTitle = e => {
-    this.setState({ albumTitle: e.target.value });
-  };
-
-  handleChangeGenre = e => {
-    this.setState({ genre: e.target.value });
-  };
-
-  handleChangeFormat = e => {
-    this.setState({ format: e.target.value });
+  handleChange = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    db.collection("albums")
-      .add({
-        Artist: this.state.artist,
-        AlbumTitle: this.state.albumTitle,
-        Genre: this.state.genre,
-        Format: this.state.format
-      })
-      .then(() => {
-        console.log("addition success!!");
-      })
-      .catch(err => {
-        console.log("Error: " + err);
-      });
+    this.props.createAlbum(this.state);
+
+    // db.collection("albums")
+    //   .add({
+    //     Artist: this.state.artist,
+    //     AlbumTitle: this.state.albumTitle,
+    //     Genre: this.state.genre,
+    //     Format: this.state.format
+    //   })
+    //   .then(() => {
+    //     console.log("addition success!!");
+    //   })
+    //   .catch(err => {
+    //     console.log("Error: " + err);
+    //   });
 
     this.setState({
       artist: "",
@@ -100,40 +96,44 @@ export default class Form extends Component {
                 style={entryField}
                 type="text"
                 name="Artist"
+                id="artist"
                 value={this.state.artist}
                 label="Artist"
                 variant="outlined"
-                onChange={this.handleChangeArtist}
+                onChange={this.handleChange}
                 fullWidth
               ></TextField>
               <TextField
                 style={entryField}
                 type="text"
                 name="Album"
+                id="albumTitle"
                 value={this.state.albumTitle}
                 label="Album Title"
                 variant="outlined"
-                onChange={this.hangleChangeAlbumTitle}
+                onChange={this.handleChange}
                 fullWidth
               ></TextField>
               <TextField
                 style={entryField}
                 type="text"
                 name="Genre"
+                id="genre"
                 value={this.state.genre}
                 label="Genre"
                 variant="outlined"
-                onChange={this.handleChangeGenre}
+                onChange={this.handleChange}
                 fullWidth
               ></TextField>
               <TextField
                 style={entryField}
                 type="text"
                 name="Format"
+                id="format"
                 value={this.state.format}
                 label="Format"
                 variant="outlined"
-                onChange={this.handleChangeFormat}
+                onChange={this.handleChange}
                 fullWidth
               ></TextField>
               <Divider />
@@ -154,3 +154,5 @@ export default class Form extends Component {
     );
   }
 }
+
+export default connect(null, mapDispatchToProps)(Form);
