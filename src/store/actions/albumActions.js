@@ -1,6 +1,7 @@
+import db from "../../firebase/firebaseInit";
+
 export const createAlbum = album => {
   return (dispatch, getState, { getFirestore }) => {
-    const db = getFirestore();
     db.collection("albums")
       .add({
         ...album,

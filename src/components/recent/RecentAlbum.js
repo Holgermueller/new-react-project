@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Card, CardContent, Divider } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
 import RecentAlbumCard from "./RecentAlbumCard";
 
 const recentsCard = {
@@ -12,8 +14,9 @@ const recentsCard = {
 };
 
 const mapStateToProps = state => {
+  console.log(state.firestore);
   return {
-    albums: state.albums.albums
+    albums: state.firestore.albums
   };
 };
 
@@ -36,4 +39,11 @@ class Recent extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Recent);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {
+      collection: "albums"
+    }
+  ])
+)(Recent);
