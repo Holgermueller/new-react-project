@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Card, CardContent, Divider } from "@material-ui/core";
-import Form from "../form/Form";
-import Recent from "../recent/RecentAlbum";
 
 const pageHeader = {
   margin: "10% auto 0 auto",
   width: "55%",
-  textAlign: "center"
+  textAlign: "center",
 };
 
 export default class Home extends Component {
@@ -20,9 +18,6 @@ export default class Home extends Component {
             <h3>Welcome back.</h3>
           </CardContent>
         </Card>
-
-        <Form />
-        <Recent />
       </div>
     );
   }
