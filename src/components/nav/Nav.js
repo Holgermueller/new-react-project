@@ -3,6 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 import AddAlbumDialog from "../dialogs/AddAlbumDialog";
+import ListFilter from "../filters/ListFilter";
 
 const navStyles = {
   width: "100%",
@@ -27,6 +28,7 @@ export default class Nav extends Component {
             </Button>
 
             <div style={actions}>
+              <ListFilter />
               <AddAlbumDialog />
             </div>
           </Toolbar>

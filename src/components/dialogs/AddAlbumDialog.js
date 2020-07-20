@@ -33,7 +33,9 @@ export default class AddAlbumDialog extends Component {
           <DialogTitle>Title</DialogTitle>
           <DialogContent>
             <DialogContentText>Words here</DialogContentText>
-            <TextField autoFocus label="Title" />
+            <TextField autoFocus label="Artist" />
+            <TextField autoFocus label="Album Title" />
+            <TextField autoFocus label="Genre" />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClickClose}>Cancel</Button>
