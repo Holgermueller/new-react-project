@@ -1,17 +1,21 @@
 import React from "react";
+import { Card } from "@material-ui/core";
 
 const footer = {
   textAlign: "center",
   bottom: "0",
   width: "100%",
   position: "fixed",
-  backgroundColor: "white"
+  backgroundColor: "white",
+  padding: "2px",
 };
 
 function Footer() {
   return (
     <div className="Footer">
-      <footer style={footer}>&copy; 2020 / Holger Mueller </footer>
+      <footer style={footer}>
+        <Card> &copy; 2020 | Holger Mueller</Card>
+      </footer>
     </div>
   );
 }

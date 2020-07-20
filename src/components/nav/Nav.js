@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
-
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+import AddAlbumDialog from "../dialogs/AddAlbumDialog";
 
 const navStyles = {
   width: "100%",
   position: "fixed",
+};
+
+const actions = {
+  float: "right",
 };
 
 export default class Nav extends Component {
@@ -18,9 +22,13 @@ export default class Nav extends Component {
             <Button component={RouterLink} to="/">
               <h3>
                 <LibraryMusicIcon />
-                Album Organizer
+                Album Wish List
               </h3>
             </Button>
+
+            <div style={actions}>
+              <AddAlbumDialog />
+            </div>
           </Toolbar>
         </AppBar>
       </div>
