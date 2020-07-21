@@ -11,7 +11,8 @@ const navStyles = {
 };
 
 const actions = {
-  float: "right",
+  listStyleType: "none",
+  display: "inherit",
 };
 
 export default class Nav extends Component {
@@ -27,10 +28,15 @@ export default class Nav extends Component {
               </h3>
             </Button>
 
-            <div style={actions}>
-              <ListFilter />
-              <AddAlbumDialog />
-            </div>
+            <ul style={actions}>
+              <li>
+                <ListFilter />
+              </li>
+
+              <li>
+                <AddAlbumDialog />
+              </li>
+            </ul>
           </Toolbar>
         </AppBar>
       </div>

@@ -28,7 +28,9 @@ export default class AddAlbumDialog extends Component {
   render() {
     return (
       <div>
-        <Button onClick={this.handleClickOpen}>Add Item</Button>
+        <Button onClick={this.handleClickOpen}>
+          <h3>Add Item</h3>
+        </Button>
         <Dialog open={this.state.open} onClose={this.handleClickClose}>
           <DialogTitle>Title</DialogTitle>
           <DialogContent>

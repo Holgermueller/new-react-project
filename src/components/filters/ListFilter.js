@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
 export default class ListFilter extends Component {
   constructor(props) {
@@ -8,15 +8,18 @@ export default class ListFilter extends Component {
       visibility: false,
     };
   }
-  showForm = () => {
-    this.setState = { visibility: true };
-  };
+  showForm = () => {};
 
   render() {
     return (
       <div>
-        <Button onClick={this.showForm}>Filter List</Button>
-        <TextField style={{}} label="Search List..." />
+        <TextField
+          id="textField"
+          style={{}}
+          label="Filter List..."
+          variant="outlined"
+          color="secondary"
+        />
       </div>
     );
   }
