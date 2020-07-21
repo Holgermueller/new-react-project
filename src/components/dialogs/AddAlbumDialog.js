@@ -29,7 +29,7 @@ export default class AddAlbumDialog extends Component {
     return (
       <div>
         <Button onClick={this.handleClickOpen}>
-          <h3>Add Item</h3>
+          <h3>Add Item +</h3>
         </Button>
         <Dialog open={this.state.open} onClose={this.handleClickClose}>
           <DialogTitle>Title</DialogTitle>
