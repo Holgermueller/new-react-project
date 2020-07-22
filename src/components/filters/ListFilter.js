@@ -18,7 +18,7 @@ export default class ListFilter extends Component {
           style={{}}
           label="Filter List..."
           variant="outlined"
-          color="secondary"
+          fullWidth
         />
       </div>
     );

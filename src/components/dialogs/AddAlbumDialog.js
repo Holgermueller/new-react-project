@@ -9,6 +9,10 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 
+const inputField = {
+  margin: "4px auto",
+};
+
 export default class AddAlbumDialog extends Component {
   constructor(props) {
     super(props);
@@ -35,9 +39,34 @@ export default class AddAlbumDialog extends Component {
           <DialogTitle>Title</DialogTitle>
           <DialogContent>
             <DialogContentText>Words here</DialogContentText>
-            <TextField autoFocus label="Artist" />
-            <TextField autoFocus label="Album Title" />
-            <TextField autoFocus label="Genre" />
+            <TextField
+              fullWidth
+              margin="dense"
+              style={inputField}
+              label="Artist"
+              variant="outlined"
+            />
+            <TextField
+              fullWidth
+              margin="dense"
+              style={inputField}
+              label="Album Title"
+              variant="outlined"
+            />
+            <TextField
+              fullWidth
+              margin="dense"
+              style={inputField}
+              label="Genre"
+              variant="outlined"
+            />
+            <TextField
+              fullWidth
+              margin="dense"
+              style={inputField}
+              label="Label"
+              variant="outlined"
+            />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClickClose}>Cancel</Button>
