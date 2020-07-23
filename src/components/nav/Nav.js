@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
-import AddAlbumDialog from "../dialogs/AddAlbumDialog";
+import AddAlbumDialog from "../dialogs/addItem/AddAlbumDialog";
 import ListFilter from "../filters/ListFilter";
 
 const navStyles = {
@@ -24,7 +24,7 @@ export default class Nav extends Component {
             <Button component={RouterLink} to="/">
               <h3>
                 <LibraryMusicIcon />
-                Album Wish List
+                Amazonless Wish List
               </h3>
             </Button>
 
