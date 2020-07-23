@@ -25,10 +25,6 @@ export default class AddAlbumDialog extends Component {
     this.setState({ open: false });
   };
 
-  handleSubmit = () => {
-    console.log(this.state);
-  };
-
   render() {
     return (
       <div>
@@ -40,14 +36,11 @@ export default class AddAlbumDialog extends Component {
           <DialogContent>
             <DialogContentText>Words here</DialogContentText>
 
-            <AddItemFrom />
+            <AddItemFrom handleClickClose={this.props.handleClickClose} />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClickClose} color="secondary">
+            <Button onClick={this.handleClickClose} color="secondary" fullWidth>
               Cancel
-            </Button>
-            <Button onClick={this.handleSubmit} color="primary">
-              Submit
             </Button>
           </DialogActions>
         </Dialog>

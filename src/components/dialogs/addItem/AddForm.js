@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextField } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 
 const inputField = {
   margin: "4px auto",
@@ -17,15 +17,33 @@ export default class AddItemForm extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(this.state);
+    this.clearForm();
+  };
+
+  clearForm = () => {
+    this.setState({
+      artist: "",
+      title: "",
+      genre: "",
+      label: "",
+      format: "",
+    });
+  };
+
   render() {
     return (
-      <div>
+      <form onSubmit={this.handleSubmit}>
         <TextField
           fullWidth
           margin="dense"
@@ -76,7 +94,16 @@ export default class AddItemForm extends Component {
           onChange={this.handleChange}
           id="format"
         />
-      </div>
+        <Button
+          type="submit"
+          style={inputField}
+          fullWidth
+          color="primary"
+          onClick={this.props.handleClickClose}
+        >
+          Submit
+        </Button>
+      </form>
     );
   }
 }
