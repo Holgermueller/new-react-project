@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Card } from "@material-ui/core";
+import { Card, CardHeader, CardContent } from "@material-ui/core";
+import ItemDisplay from "./ItemDisplay";
 
 const dashCard = {
-  margin: " 7% auto",
+  margin: " 15% auto",
   width: "85%",
 };
 
@@ -11,7 +12,10 @@ export default class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Card style={dashCard}>
-          <h1>This is the dashbaord</h1>
+          <CardHeader title="Your wish list." />
+          <CardContent>
+            <ItemDisplay />
+          </CardContent>
         </Card>
       </div>
     );
