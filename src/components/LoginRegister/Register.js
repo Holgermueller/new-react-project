@@ -5,16 +5,16 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  TextField
+  TextField,
 } from "@material-ui/core";
 
 const textfield = {
-  margin: "2% auto"
+  margin: "2% auto",
 };
 
 const errors = {
   textAlign: "center",
-  color: "red"
+  color: "red",
 };
 
 export default class Register extends Component {
@@ -26,15 +26,10 @@ export default class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
-      error: ""
+      error: "",
     };
 
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(
-      this
-    );
+    this.handleChange = this.handleChange.bind(this);
   }
 
   openForm = () => {
@@ -46,23 +41,13 @@ export default class Register extends Component {
     this.clearForm();
   };
 
-  handleUsernameChange = e => {
-    this.setState({ username: e.target.value, error: "" });
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
   };
 
-  handlePasswordChange = e => {
-    this.setState({ password: e.target.value, error: "" });
-  };
-
-  handleEmailChange = e => {
-    this.setState({ email: e.target.value, error: "" });
-  };
-
-  handleConfirmPasswordChange = e => {
-    this.setState({ confirmPassword: e.target.value, error: "" });
-  };
-
-  validateForm = e => {
+  validateForm = (e) => {
     e.preventDefault();
 
     if (
@@ -93,12 +78,12 @@ export default class Register extends Component {
 
   validateUsername = () => {};
 
-  validateEmail = email => {
+  validateEmail = (email) => {
     const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     return regex.test(this.state.email);
   };
 
-  validatePassword = password => {
+  validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
     return regex.test(this.state.password);
   };
@@ -108,7 +93,7 @@ export default class Register extends Component {
       username: "",
       email: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
     });
   };
 
@@ -130,41 +115,45 @@ export default class Register extends Component {
           <DialogContent>
             <form>
               <TextField
+                id="username"
                 type="text"
                 label="Username *"
                 name="username"
                 value={this.state.username}
-                onChange={this.handleUsernameChange}
+                onChange={this.handleChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
               />
               <TextField
+                id="email"
                 type="text"
                 label="Email *"
                 name="email"
                 value={this.state.email}
-                onChange={this.handleEmailChange}
+                onChange={this.handleChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
               />
               <TextField
+                id="password"
                 type="text"
                 label="Password *"
                 name="password"
                 value={this.state.password}
-                onChange={this.handlePasswordChange}
+                onChange={this.handleChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth
               />
               <TextField
+                id="confirmPassword"
                 type="text"
                 label="Confirm Password *"
                 name="confirmPassword"
                 value={this.state.confirmPassword}
-                onChange={this.handleConfirmPasswordChange}
+                onChange={this.handleChange}
                 variant="outlined"
                 style={textfield}
                 fullWidth

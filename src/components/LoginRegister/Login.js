@@ -5,20 +5,20 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  TextField
+  TextField,
 } from "@material-ui/core";
 
 const buttonStyles = {
-  textAlign: "center"
+  textAlign: "center",
 };
 
 const textfield = {
-  margin: "2% auto"
+  margin: "2% auto",
 };
 
 const errors = {
   textAlign: "center",
-  color: "red"
+  color: "red",
 };
 
 export default class Login extends Component {
@@ -28,11 +28,10 @@ export default class Login extends Component {
       open: false,
       username: "",
       password: "",
-      error: ""
+      error: "",
     };
 
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   openForm = () => {
@@ -44,7 +43,7 @@ export default class Login extends Component {
     this.clearForm();
   };
 
-  validateForm = e => {
+  validateForm = (e) => {
     e.preventDefault();
     if (!this.state.username && !this.state.password) {
       this.setState({ error: "You must fill out all of the fields." });
@@ -59,23 +58,19 @@ export default class Login extends Component {
     }
   };
 
-  validatePassword = password => {
+  validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
     return regex.test(this.state.password);
   };
 
-  handleUsernameChange = e => {
-    this.setState({ username: e.target.value, error: "" });
-  };
-
-  handlePasswordChange = e => {
-    this.setState({ password: e.target.value, error: "" });
+  handleChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
   };
 
   clearForm = () => {
     this.setState({
       username: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -102,21 +97,23 @@ export default class Login extends Component {
           <DialogContent>
             <form>
               <TextField
+                id="username"
                 type="text"
                 label="Username"
                 value={this.state.username}
                 variant="outlined"
                 style={textfield}
-                onChange={this.handleUsernameChange}
+                onChange={this.handleChange}
                 fullWidth
               />
               <TextField
+                id="password"
                 type="text"
                 label="Password"
                 value={this.state.password}
                 variant="outlined"
                 style={textfield}
-                onChange={this.handlePasswordChange}
+                onChange={this.handleChange}
                 fullWidth
               />
             </form>
