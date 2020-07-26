@@ -6,5 +6,5 @@ export default {
   storageBucket: "albumcollection-8e659.appspot.com",
   messagingSenderId: "172896815482",
   appId: "1:172896815482:web:41d437537dda3815e6eec3",
-  measurementId: "G-MJZC3YV3FV"
+  measurementId: "xxxxxx",
 };
