@@ -1,15 +1,19 @@
-import { albumsRef } from "../config/firebase";
-import { FETCH_ALBUMS } from "./albums";
+import { listRef } from "../../firebase";
+const FETCH_LIST = "FETCH_LIST";
 
-export const addAlbum = newAlbum => async dispatch => {
-  albumsRef.push().set(newAlbum);
+export const addToList = (newListItem) => async (dispatch) => {
+  listRef.push().set(newListItem);
 };
 
-export const fetchAlbums = () => dispatch => {
-  albumsRef.on("value", snapshot => {
+export const removeItemFromList = (removeItemFromList) => async (dispatch) => {
+  listRef.child(removeItemFromList).remove();
+};
+
+export const fetchList = () => async (dispatch) => {
+  listRef.on("value", (snapshot) => {
     dispatch({
-      type: FETCH_ALBUMS,
-      payload: snapshot.val()
+      type: FETCH_LIST,
+      payload: snapshot.val(),
     });
   });
 };
