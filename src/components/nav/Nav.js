@@ -17,6 +17,10 @@ const actions = {
 };
 
 export default class Nav extends Component {
+  logOut = () => {
+    console.log("click");
+  };
+
   render() {
     return (
       <div className="nav">
@@ -37,6 +41,10 @@ export default class Nav extends Component {
 
             <li>
               <AddAlbumDialog />
+            </li>
+
+            <li>
+              <Button onClick={this.logOut}>Log Out</Button>
             </li>
           </ul>
         </AppBar>
