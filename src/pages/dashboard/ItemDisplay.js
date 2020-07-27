@@ -9,19 +9,26 @@ import {
 } from "@material-ui/core";
 import { ExpandLess } from "@material-ui/icons";
 
-export default class ItemDisplay extends Component {
-  render() {
-    return (
-      <div>
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandLess />}>Info</AccordionSummary>
-          <AccordionDetails>More info</AccordionDetails>
-          <Divider />
-          <AccordionActions>
-            <Button>Delete Item</Button>
-          </AccordionActions>
-        </Accordion>
-      </div>
-    );
-  }
-}
+const ItemDisplay = ({ list }) => {
+  return (
+    <div>
+      {list &&
+        list.map((itemOnList) => {
+          return (
+            <Accordion key={itemOnList.id}>
+              <AccordionSummary expandIcon={<ExpandLess />}>
+                {itemOnList.title}
+              </AccordionSummary>
+              <AccordionDetails>{itemOnList.artist}</AccordionDetails>
+              <Divider />
+              <AccordionActions>
+                <Button>Delete Item</Button>
+              </AccordionActions>
+            </Accordion>
+          );
+        })}
+    </div>
+  );
+};
+
+export default ItemDisplay;

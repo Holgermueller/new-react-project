@@ -27,7 +27,7 @@ export default class Nav extends Component {
         <AppBar style={navStyles} color="secondary">
           <ul style={actions}>
             <li>
-              <Button component={RouterLink} to="/">
+              <Button component={RouterLink} to="/dashboard">
                 <h3>
                   <LibraryMusicIcon />
                   Amazonless Wish List
@@ -44,7 +44,9 @@ export default class Nav extends Component {
             </li>
 
             <li>
-              <Button onClick={this.logOut}>Log Out</Button>
+              <Button onClick={this.logOut} component={RouterLink} to="/">
+                Log Out
+              </Button>
             </li>
           </ul>
         </AppBar>
