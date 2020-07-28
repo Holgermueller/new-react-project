@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Button, TextField } from "@material-ui/core";
+import { connect } from "react-redux";
+import { createItem } from "../../../store/actions/listActions";
 
 const inputField = {
   margin: "4px auto",
 };
 
-export default class AddItemForm extends Component {
+class AddItemForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,8 +29,9 @@ export default class AddItemForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    this.props.createItem(this.state);
+
     console.log(this.state);
-    this.clearForm();
   };
 
   clearForm = () => {
@@ -107,3 +110,11 @@ export default class AddItemForm extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createItem: (listItem) => dispatch(createItem(listItem)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddItemForm);

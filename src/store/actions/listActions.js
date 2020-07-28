@@ -1,5 +1,5 @@
-export const createItem = (item) => {
+export const createItem = (listItem) => {
   return (dispatch, getState) => {
-    dispatch({ type: "CREATE_ITEM" }, item);
+    dispatch({ type: "CREATE_ITEM" }, listItem);
   };
 };
