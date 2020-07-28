@@ -28,10 +28,7 @@ class AddItemForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     this.props.createItem(this.state);
-
-    console.log(this.state);
   };
 
   clearForm = () => {

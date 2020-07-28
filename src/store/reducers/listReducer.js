@@ -9,7 +9,7 @@ const initState = {
 const listReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_ITEM":
-      console.log("create item", action.listItem);
+      console.log("created item", action.listItem);
       return state;
     default:
       return state;
